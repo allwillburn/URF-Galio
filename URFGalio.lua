@@ -14,6 +14,8 @@ GalioMenu.Misc:Boolean("Level", "Auto level spells", true)
 GalioMenu.Misc:Boolean("Ghost", "Auto Ghost", true)
 GalioMenu.Misc:Boolean("W", "Auto W", true)
 GalioMenu.Misc:Boolean("Q", "Auto Q", true)
+GalioMenu.Misc:Boolean("E", "Auto E", true)
+
 
 OnTick(function (myHero)
 
@@ -67,6 +69,14 @@ OnTick(function (myHero)
 
         end
 
+        if GalioMenu.Misc.E:Value() then
+
+                if Ready(_E) and ValidTarget(target, 1180) then
+                        CastSkillShot(_E, target.pos)
+                end
+
+        end
+
 	--AUTO IGNITE
 	if GalioMenu.Misc.Ghost:Value() then
 
@@ -79,4 +89,3 @@ OnTick(function (myHero)
 	end
 
 end)
-
