@@ -12,7 +12,8 @@ GalioMenu.Combo:Boolean("R", "Use R in combo", true)
 GalioMenu:SubMenu("Misc", "Misc")
 GalioMenu.Misc:Boolean("Level", "Auto level spells", true)
 GalioMenu.Misc:Boolean("Ghost", "Auto Ghost", true)
-GalioMenu.Misc:Boolean("QW", "Auto QW", true)
+GalioMenu.Misc:Boolean("W", "Auto W", true)
+GalioMenu.Misc:Boolean("Q", "Auto Q", true)
 
 OnTick(function (myHero)
 
@@ -50,15 +51,19 @@ OnTick(function (myHero)
 	end
 
         --AUTO QW
-        if GalioMenu.Misc.QW:Value() then 
-       
-                if Ready(_Q) and ValidTarget(target, 940) then
-                        CastTargetSpell(target, _Q)
-                end
-
+        if GalioMenu.Misc.W:Value() then
+            
                 if Ready(_W) then
 		        CastSpell(_W)
 	        end
+
+        end
+
+        if GalioMenu.Misc.Q:Value() then
+
+                if Ready(_Q) and ValidTarget(target, 940) then
+                        CastTargetSpell(target, _Q)
+                end
 
         end
 
