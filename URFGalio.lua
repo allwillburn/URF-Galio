@@ -41,7 +41,7 @@ OnTick(function (myHero)
 		end
 
 		if GalioMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 1180) then
-			CastSkillShot(_E, GetMousePos())
+			CastSkillShot(_E, target.pos)
 		end
 
 		if GalioMenu.Combo.R:Value() and Ready(_R) then
@@ -79,3 +79,4 @@ OnTick(function (myHero)
 	end
 
 end)
+
