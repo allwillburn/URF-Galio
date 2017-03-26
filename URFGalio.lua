@@ -18,13 +18,13 @@ function AutoUpdate(data)
     if tonumber(data) > tonumber(ver) then
         PrintChat('<font color = "#00FFFF">New version found! ' .. data)
         PrintChat('<font color = "#00FFFF">Downloading update, please wait...')
-        DownloadFileAsync('https://raw.githubusercontent.com/allwillburn/Galio/master/Galio.lua', SCRIPT_PATH .. 'Galio.lua', function() PrintChat('<font color = "#00FFFF">Update Complete, please 2x F6!') return end)
+        DownloadFileAsync('https://raw.githubusercontent.com/allwillburn/URFGalio/gh-pages/URFGalio.lua', SCRIPT_PATH .. 'URFGalio.lua', function() PrintChat('<font color = "#00FFFF">Update Complete, please 2x F6!') return end)
     else
         PrintChat('<font color = "#00FFFF">No updates found!')
     end
 end
 
-GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Galio/master/Galio.version", AutoUpdate)
+GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/URFGalio/gh-pages/URFGalio.version", AutoUpdate)
 
 
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
