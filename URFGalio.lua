@@ -177,7 +177,7 @@ OnTick(function (myHero)
 	    local ally = ClosestAlly
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
 			local RPred = GetPrediction(target,GalioR)
-                       if QPred.hitChance > (GalioMenu.Combo.Rpred:Value() * 0.1) then
+                       if RPred.hitChance > (GalioMenu.Combo.Rpred:Value() * 0.1) then
                                  CastTargetSpell(_R,RPred.castPos)
                        end
             end
