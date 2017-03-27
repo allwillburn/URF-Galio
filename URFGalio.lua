@@ -178,7 +178,7 @@ OnTick(function (myHero)
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
 			local RPred = GetPrediction(target,GalioR)
                        if RPred.hitChance > (GalioMenu.Combo.Rpred:Value() * 0.1) then
-                                 CastSkillShot(_R,RPred.castPos)
+                                 CastTargetSpell(RPred.castPos, _R)
                        end
             end
 
