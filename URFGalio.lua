@@ -52,6 +52,7 @@ GalioMenu.Combo:Boolean("RHydra", "Use RHydra", true)
 GalioMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
 GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
+GalioMenu.Combo:Boolean("GLP-800", "Use GLP-800", true)
 
 GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
@@ -104,6 +105,7 @@ OnTick(function (myHero)
         local BOTRK = GetItemSlot(myHero, 3153)
         local Cutlass = GetItemSlot(myHero, 3144)
         local Randuins = GetItemSlot(myHero, 3143)
+	local GLP-800 = GetItemSlot(myHero, 3030)
         local ally = ClosestAlly
 
 	--AUTO LEVEL UP
@@ -166,6 +168,10 @@ OnTick(function (myHero)
             if GalioMenu.Combo.Gunblade:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
 			CastTargetSpell(target, Gunblade)
             end
+			
+		if GalioMenu.Combo.GLP-800:Value() and GLP-800 > 0 and Ready(GLP-800) and ValidTarget(target, 700) then
+			CastTargetSpell(target, GLP-800)
+            end	
 
             if GalioMenu.Combo.RHydra:Value() and RHydra > 0 and Ready(RHydra) and ValidTarget(target, 400) then
 			CastSpell(RHydra)
@@ -174,7 +180,7 @@ OnTick(function (myHero)
 	    
 	    
 	    local ally = ClosestAlly
-            if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
+            if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 400) and (EnemiesAround(myHeroPos(), 400) >= GalioMenu.Combo.RX:Value()) then
 			                       CastSpell(_R)
             end
 
