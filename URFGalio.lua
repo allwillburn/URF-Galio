@@ -42,6 +42,7 @@ GalioMenu.Combo:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.Combo:Boolean("W", "Use W in combo", true)
 GalioMenu.Combo:Boolean("E", "Use E in combo", true)
 GalioMenu.Combo:Boolean("R", "Use R in combo", false)
+GalioMenu.Combo:Boolean("RA", "Use R on ally in combo", false)
 GalioMenu.Combo:Slider("Rpred", "R Hit Chance", 3,0,10,1)
 GalioMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)
 GalioMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
@@ -178,6 +179,11 @@ OnTick(function (myHero)
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
 			                       CastSpell(_R)
             end
+
+            if GalioMenu.Combo.RA:Value() and Ready(_R) and ValidTarget(ally, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
+			                       CastTargetSpell(ally, _R)
+            end
+
 
           end
 
