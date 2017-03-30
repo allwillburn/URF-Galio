@@ -181,7 +181,7 @@ OnTick(function (myHero)
             end
 
             if GalioMenu.Combo.RA:Value() and Ready(_R) and ValidTarget(ally, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
-			                       CastTargetSpell(ally, _R)
+			                       CastTargetSpell(target, _R)
             end
 
 
