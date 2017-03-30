@@ -171,9 +171,7 @@ OnTick(function (myHero)
 			CastSpell(RHydra)
             end
 
-	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
-			CastSpell(_W)
-	    end
+	    
 	    
 	    local ally = ClosestAlly
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
@@ -183,6 +181,10 @@ OnTick(function (myHero)
             if GalioMenu.Combo.RA:Value() and Ready(_R) and ValidTarget(ally, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
 			                       CastTargetSpell(target, _R)
             end
+			
+	   if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
+			CastSpell(_W)
+	    end		
 
 
           end
