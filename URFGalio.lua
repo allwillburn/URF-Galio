@@ -12,10 +12,7 @@ GarenMenu.Combo:Boolean("R", "Use R in combo", true)
 GarenMenu:SubMenu("Misc", "Misc")
 GarenMenu.Misc:Boolean("Level", "Auto level spells", true)
 GarenMenu.Misc:Boolean("Ghost", "Auto Ghost", true)
-GarenMenu.Misc:Boolean("autoQ", "Auto Q", true)
-GarenMenu.Misc:Boolean("autoW", "Auto W", true)
-GarenMenu.Misc:Boolean("autoE", "Auto E", true)
-GarenMenu.Misc:Boolean("autoR", "Auto R", true)
+GarenMenu.Misc:Boolean("QWE", "Auto QWE", true)
 
 OnTick(function (myHero)
 
@@ -34,7 +31,7 @@ OnTick(function (myHero)
 	--COMBO
 	if IOW:Mode() == "Combo" then
 
-		if GarenMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
+		if GarenMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 800) then
 			CastSpell(_Q)
 		end
 
@@ -47,31 +44,27 @@ OnTick(function (myHero)
 		end
 
 		if GarenMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 400) then
-			CastTargetSpell(target, _Q)
+			CastTargetSpell(target, _R)
+
 		end
 
 	end
 
         --AUTO QWE
-        if GarenMenu.Misc.autoQ:Value() then        
+        if GarenMenu.Misc.QWE:Value() then        
 
-                if Ready(_Q) then
-		        CastSpell(_Q)
-                end
-        end
-
-        if GarenMenu.Misc.autoW:Value() then        
-
-                if Ready(_W) then
-		        CastSpell(_W)
-                end
-        end
-
-	if GarenMenu.Misc.autoE:Value() then        
-
-                if Ready(_E) then
+                if Ready(_E) and ValidTarget(target, 1000) then
 		        CastSpell(_E)
                 end
+
+                if Ready(_Q) then
+	  	        CastSpell(_Q)
+                end
+
+	        if Ready(_W) then
+		        CastSpell(_W)
+	        end
+
         end
 
 	--AUTO IGNITE
